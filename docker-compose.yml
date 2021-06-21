@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  ai-flow:
+    image: orientis/ai-flow:0.1.1
+    container_name: ai-flow
+    depends_on: 
+     - ai-flow-database
+    ports:
+       - 81:80
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  ai-flow-database:
+     image: postgres:13
+     container_name: ai-flow-database
+     restart: always
+     ports:
+       - 15432:5432
+     environment:
+         POSTGRES_PASSWORD: postgres
+
+  
