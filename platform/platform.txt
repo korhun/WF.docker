@@ -11,7 +11,7 @@ docker-compose up
 
 # docker push {docker-hub-username}/{default-repo-folder-name}:first-image
 
-docker tag orientis/platform orientis/platform:0.1.2
-docker push orientis/platform:0.1.2
+docker tag orientis/platform:latest orientis/platform:0.1.3
+docker push orientis/platform:0.1.3
 
 docker-compose up -d
