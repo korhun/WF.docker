@@ -1,0 +1,17 @@
+root dizinde:
+cd C:\_koray\korhun\thingsboard
+mvn clean install -DskipTests
+
+cd C:\_koray\korhun\thingsboard\ui-ngx
+yarn start
+
+cd C:\_koray\korhun\thingsboard\docker\orientis-docker
+docker-compose up
+
+
+# docker push {docker-hub-username}/{default-repo-folder-name}:first-image
+
+docker tag orientis/platform orientis/platform:0.1.2
+docker push orientis/platform:0.1.2
+
+docker-compose up -d

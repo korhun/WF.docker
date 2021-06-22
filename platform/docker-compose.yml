@@ -1,0 +1,38 @@
+version: '2.2'
+services:
+  platform-web-app:
+    image: orientis/platform:0.1.2
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://platform-database:5432/orientis-platform
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+    ports:
+      - "8081:9090"
+      - "1884:1883"
+      - "5683:5683"
+      - "5685:5685"
+    depends_on:
+      - platform-database
+
+  platform-database:
+    restart: always
+    image: postgis/postgis:12-master
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: orientis-platform
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./platform-db/postgres:/var/lib/postgresql/data
+
+  platform-container-updater:
+    command: --label-enable --cleanup --interval 300
+    image: containrrr/watchtower
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    network_mode: none
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
