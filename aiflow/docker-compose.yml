@@ -6,7 +6,7 @@ services:
     container_name: ai-flow-database
     restart: always
     ports:
-      - "15432:5432"
+      - "5434:5432"
     environment:
       POSTGRES_PASSWORD: postgres
     volumes:
