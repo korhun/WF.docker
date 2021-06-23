@@ -1,4 +1,6 @@
-version: '2.2'
+version: '3.4'
+# version: '2.2'
+
 services:  
   platform-database:
     restart: always
@@ -22,6 +24,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       
   platform-web-app:
+    # image: orientis/platform:latest
     image: orientis/platform:0.1.4
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://platform-database:5432/orientis-platform
