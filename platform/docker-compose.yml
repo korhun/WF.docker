@@ -34,5 +34,6 @@ services:
       - "1884:1883"
       - "5683:5683"
       - "5685:5685"
+    restart: always
     depends_on:
       - platform-database

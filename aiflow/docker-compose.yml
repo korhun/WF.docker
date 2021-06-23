@@ -6,20 +6,21 @@ services:
     container_name: ai-flow-database
     restart: always
     ports:
-    - "5434:5432"
+      - "5434:5432"
     environment:
       POSTGRES_PASSWORD: postgres
     volumes:
-    - ./ai-flow-db/postgres:/var/lib/postgresql/data
+      - ./ai-flow-db/postgres:/var/lib/postgresql/data
 
   #ai-flow:
   wf.web:
     image: orientis/ai-flow:0.1.3
     container_name: ai-flow
     depends_on: 
-    - ai-flow-database
+      - ai-flow-database
     ports:
-    - "8082:80"
+      - "8082:80"
+    restart: always
     volumes:
-    - ./ai-flow-appdata:/usr/share/orientis/ai-flow-appdata    
+      - ./ai-flow-appdata:/usr/share/orientis/ai-flow-appdata    
     
