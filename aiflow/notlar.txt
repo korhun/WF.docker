@@ -3,7 +3,13 @@
 cd C:\_koray\korhun\WF
 docker build -t orientis/ai-flow:latest .
 
-docker tag orientis/ai-flow:latest orientis/ai-flow:0.1.2
-docker push orientis/ai-flow:0.1.2
+#test
+chage tag to latest
+cd C:\_koray\korhun\WF.docker\aiflow
+docker-compose up
+
+change tag
+docker tag orientis/ai-flow:latest orientis/ai-flow:0.1.3
+docker push orientis/ai-flow:0.1.3
 
 docker-compose up -d
