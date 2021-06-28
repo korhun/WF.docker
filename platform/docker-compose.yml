@@ -25,7 +25,7 @@ services:
       
   platform-web-app:
     # image: orientis/platform:latest
-    image: orientis/platform:0.1.5
+    image: orientis/platform:0.1.6
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://platform-database:5432/orientis-platform
       SPRING_DATASOURCE_USERNAME: postgres
