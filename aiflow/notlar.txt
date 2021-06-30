@@ -16,7 +16,13 @@ docker-compose up
 #push to Docker Hub
 docker push orientis/ai-flow:0.1.4
 
+
 #install
 git clone https://github.com/korhun/WF.docker.git
 cd aiflow
+docker-compose up -d
+
+#update existing
+cd ...WF.docker/aiflow
+git pull
 docker-compose up -d
