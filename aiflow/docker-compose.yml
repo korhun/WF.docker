@@ -14,7 +14,7 @@ services:
 
   #ai-flow:
   wf.web:
-    image: orientis/ai-flow:0.1.3
+    image: orientis/ai-flow:0.1.4
     container_name: ai-flow
     depends_on: 
       - ai-flow-database
