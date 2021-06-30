@@ -12,8 +12,7 @@ services:
     volumes:
       - ./ai-flow-db/postgres:/var/lib/postgresql/data
 
-  #ai-flow:
-  wf.web:
+  ai-flow:
     image: orientis/ai-flow:0.1.4
     container_name: ai-flow
     depends_on: 

@@ -1,15 +1,22 @@
 # docker push {docker-hub-username}/{default-repo-folder-name}:first-image
 
+
+#build Dockerfile
 cd C:\_koray\korhun\WF
 docker build -t orientis/ai-flow:latest .
 
-#test
-chage tag to latest
+
+#change tag
+docker tag orientis/ai-flow:latest orientis/ai-flow:0.1.4
+
+#test if working!
 cd C:\_koray\korhun\WF.docker\aiflow
 docker-compose up
 
-change tag
-docker tag orientis/ai-flow:latest orientis/ai-flow:0.1.4
+#push to Docker Hub
 docker push orientis/ai-flow:0.1.4
 
+#install
+git clone https://github.com/korhun/WF.docker.git
+cd aiflow
 docker-compose up -d
